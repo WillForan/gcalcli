@@ -602,6 +602,9 @@ class GoogleCalendarInterface:
                 output += '\t%s' % (event['hangoutLink']
                                     if 'hangoutLink' in event else '')
 
+            if self.details.get('id'):
+                output += '\t%s' % event['id']
+
             output += '\t%s' % _u(self._valid_title(event).strip())
 
             if self.details.get('location'):
