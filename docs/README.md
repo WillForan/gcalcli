@@ -13,6 +13,18 @@ service and execute any application you want when an event is coming up.
 
 gcalcli uses the [Google Calendar API version 3](https://developers.google.com/google-apps/calendar/).
 
+LNCD Legacy script
+------------
+Usage in `pull_from_sheets/01_getCalendar.bash`
+```bash
+gcalcli --nocache --calendar 'Luna\ Lab' agenda --detail id --tsv start stop
+```
+
+and output is like
+```
+4c2ih2o117tqeral509psbfhsn      2022-12-22      12:00   2022-12-22      14:00   Habit x1 EEG-15yof (OG)-AF and NR for set-up-4.5
+```
+
 Requirements
 ------------
 

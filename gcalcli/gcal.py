@@ -592,7 +592,13 @@ class GoogleCalendarInterface:
                 continue
             if self.options['ignore_declined'] and self._DeclinedEvent(event):
                 continue
-            output = '%s\t%s\t%s\t%s' % (event['s'].strftime('%Y-%m-%d'),
+
+            if self.details.get('id'):
+                output = '%s\t' % event['id']
+            else:
+                output = ''
+
+            output += '%s\t%s\t%s\t%s' % (event['s'].strftime('%Y-%m-%d'),
                                          event['s'].strftime('%H:%M'),
                                          event['e'].strftime('%Y-%m-%d'),
                                          event['e'].strftime('%H:%M'))
@@ -602,6 +608,7 @@ class GoogleCalendarInterface:
                                     if 'htmlLink' in event else '')
                 output += '\t%s' % (event['hangoutLink']
                                     if 'hangoutLink' in event else '')
+
 
             if self.details.get('conference'):
                 conference_data = (event['conferenceData']
